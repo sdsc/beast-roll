@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+
+<graph>
+
+  <description>
+  NAMD (NAno scale Molecular Dynamics)
+  </description>
+
+  <copyright>
+Copyright (c) 1995, 1996, 1997, 1998, 1999, 2000 by
+The Board of Trustees of the University of Illinois.
+All rights reserved.
+  </copyright>
+
+  <changelog>
+  </changelog>
+
+  <edge from="base">
+    <to>beast-common</to>
+  </edge>
+</graph>
