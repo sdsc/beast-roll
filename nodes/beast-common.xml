@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+ <description>
+  BEAST Bayesian MCMC analysis of molecular sequences
+  </description>
+
+  <copyright>
+Alexei Drummond and Andrew Rambaut
+Copyright © 2002-2007 All rights reserved.
+  </copyright>
+
+  <changelog>
+  </changelog>
+
+  <!-- Set of RPMs to install, surrounded by individual package tags. -->
+  <package>beast</package>
+
+  <post>
+mkdir /opt/modulefiles/applications/beast
+chmod 0755 /opt/modulefiles/applications/beast
+ln -s /opt/modulefiles/applications/application /opt/modulefiles/applications/beast/1.5.2
+<file name="/opt/modulefiles/applications/beast/.version.1.5.2">
+#%Module1.0
+set ModulesVersion "1.5.2"
+</file>
+ln -s /opt/modulefiles/applications/beast/.version.1.5.2 /opt/modulefiles/applications/beast/.version
+</post>
+
+</kickstart>
