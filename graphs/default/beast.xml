@@ -3,13 +3,12 @@
 <graph>
 
   <description>
-  NAMD (NAno scale Molecular Dynamics)
+  BEAST Bayesian MCMC analysis of molecular sequences
   </description>
 
   <copyright>
-Copyright (c) 1995, 1996, 1997, 1998, 1999, 2000 by
-The Board of Trustees of the University of Illinois.
-All rights reserved.
+Alexei Drummond and Andrew Rambaut
+Copyright © 2002-2007 All rights reserved.
   </copyright>
 
   <changelog>
