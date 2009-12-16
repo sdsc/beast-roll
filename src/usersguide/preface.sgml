@@ -1,0 +1,13 @@
+<preface id="preface" xreflabel="preface">
+<title>Preface</title>
+
+
+<para>
+
+The beast roll provides the Bayesian Evolutionary Analysis Sampling Trees
+(BEAST) program for a Rocks cluster.  It installs the software in /opt/beast
+on compute hosts.
+
+</para>
+
+</preface>

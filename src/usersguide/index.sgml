@@ -1,0 +1,43 @@
+<!--
+$Id$
+
+@Copyright@
+@Copyright@
+
+-->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V3.1//EN" [
+	<!ENTITY % entities SYSTEM "entities.sgml">
+	%entities;
+]>
+
+<book>
+<bookinfo>
+
+	<title> beast Roll: Users Guide </title>
+
+        <edition>Version &document_version;</edition>
+        <pubdate>&document_pubdate;</pubdate>
+        <copyright id="copyright" xreflabel="copyright">
+                <year>&document_year;</year>
+                <holder>&document_copyright;</holder>   
+        </copyright>
+
+        <releaseinfo>
+                <ulink url="roll-beast-usersguide.pdf">(PDF version)</ulink>
+        </releaseinfo>
+
+        <legalnotice>
+                <para>
+                This document is subject to the Rocks License 
+                (see <xref linkend="rocks-copyright">).
+                </para>
+        </legalnotice>
+
+</bookinfo>
+
+&source_preface;
+&source_roll-overview;
+&source_installing;
+&source_appendix;
+
+</book>
