@@ -53,31 +53,6 @@
 # 
 # @Copyright@
 #
-# $Log$
-# Revision 1.1  2009/11/04 20:24:51  jpg
-#
-# beast src directory files
-#
-# Revision 1.1  2009/07/22 00:16:49  jpg
-#
-#
-# linux.mk
-#
-# Revision 1.1  2009/05/17 19:56:22  jpg
-#
-#
-# Changed the build target in the Makefile so that one can pick a build target,and "actvte"
-# target(99.99% of the time it's *UNX). Next, I will add FORTRAN targets where the GAMESS build scripts allows for a choice
-#
-# Jerry
-#
-# Revision 1.1  2009/05/01 16:32:15  jhayes
-# Add DDT roll.
-#
-# Revision 1.1  2009/02/05 18:36:05  bruno
-# added
-#
-#
 
 SRCDIRS = `find . -type d -maxdepth 1 \
 	-not -name CVS \

@@ -55,16 +55,20 @@
 # @Copyright@
 #
 
-PKG_NAME=beast
-VERSION=1.5.2
-PKGROOT = /opt/$(PKG_NAME)
+PKGROOT = /opt/$(NAME)
 REDHAT.ROOT = $(PWD)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
+
 build:
+
 install::
-	mkdir -p BUILD
 	mkdir -p $(ROOT)/$(PKGROOT)
-	(cd BUILD;tar xvf ../$(PKG_NAME)-$(VERSION).tgz; cd $(PKG_NAME)-$(VERSION);\
-         cp -r * $(ROOT)/$(PKGROOT); chmod 0755 $(ROOT)/$(PKGROOT)/bin/* )
+	( \
+	  tar xvf $(NAME)-$(VERSION).tgz; \
+	  cd $(NAME)-$(VERSION); \
+	  cp -r * $(ROOT)/$(PKGROOT); \
+	  chmod 0755 $(ROOT)/$(PKGROOT)/bin/* \
+	)
+
 clean::
-	rm -rf BUILD
+	rm -rf $(NAME)-$(VERSION)

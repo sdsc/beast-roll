@@ -54,25 +54,10 @@
 # 
 # @Copyright@
 #
-# $Log$
-# Revision 1.1  2009/11/04 19:31:47  jpg
-#
-# beast top roll directory files
-#
-# Revision 1.1  2009/07/21 23:58:53  jpg
-#
-#
-# Makefile
-#
-# Revision 1.1  2009/05/11 23:12:16  jpg
-#
-#
-#
 
 -include $(ROLLSROOT)/etc/Rolls.mk
 
-default:	roll
+default: roll
 
 clean::
-	rm -f _arch
-
+	rm -f _arch bootstrap.py

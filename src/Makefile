@@ -53,19 +53,6 @@
 # 
 # @Copyright@
 #
-# $Log$
-# Revision 1.1  2009/11/04 20:24:50  jpg
-#
-# beast src directory files
-#
-# Revision 1.1  2009/07/22 00:17:14  jpg
-#
-#
-# Makefile
-#
-# Revision 1.1  2009/05/17 19:56:22  jpg
-#
-#
 
 -include $(shell ${ROCKSROOT}/bin/arch).mk
 -include $(shell ${ROCKSROOT}/bin/os).mk
