@@ -18,5 +18,8 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <edge from="compute">
   <to>beast-install</to>
 </edge>
+<order head="compute">
+  <tail>beast-install</tail>
+</order>
 
 </graph>
