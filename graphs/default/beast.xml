@@ -22,4 +22,11 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
   <tail>beast-install</tail>
 </order>
 
+<edge from="server">
+  <to>beast-doc</to>
+</edge>
+<order head="server">
+  <tail>beast-doc</tail>
+</order>
+
 </graph>

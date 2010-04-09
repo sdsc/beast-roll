@@ -3,7 +3,7 @@
 <kickstart>
 
 <description>
-Bayesian Evolutionary Analysis Sampling Trees
+Bayesian Evolutionary Analysis Sampling Trees roll doc
 http://beast.bio.ed.ac.uk/Main_Page
 </description>
 
@@ -15,7 +15,7 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <changelog>
 </changelog>
 
-<package>beast</package>
+<package>roll-beast-usersguide</package>
 
 <post>
 </post>
