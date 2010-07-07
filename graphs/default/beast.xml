@@ -36,4 +36,8 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
   <tail>beast-modules-install</tail>
 </order>
 
+<order head="beast-install">
+  <tail>beast-modules-install</tail>
+</order>
+
 </graph>
