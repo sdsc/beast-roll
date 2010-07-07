@@ -18,6 +18,25 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <package>beast</package>
 
 <post>
+
+<file name="/etc/profile.d/beast.csh" perms="0755" >
+set path = ( /opt/beast/bin $path )
+if ($?CLASSPATH) then
+  setenv CLASSPATH /opt/beast/lib:$CLASSPATH
+else
+  setenv CLASSPATH /opt/beast/lib
+endif
+</file>
+
+<file name="/etc/profile.d/beast.sh" perms="0755" >
+export PATH=/opt/beast/bin:$PATH
+if test -n "$CLASSPATH"; then
+  export CLASSPATH=/opt/beast/lib:$CLASSPATH
+else
+  export CLASSPATH=/opt/beast/lib
+fi
+</file>
+
 </post>
 
 </kickstart>
