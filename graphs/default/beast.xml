@@ -30,10 +30,10 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 </order>
 
 <edge from="envmodules-common">
-  <to>beast-modules-common</to>
+  <to>beast-modules-install</to>
 </edge>
 <order head="envmodules-common">
-  <tail>beast-modules-common</tail>
+  <tail>beast-modules-install</tail>
 </order>
 
 </graph>
