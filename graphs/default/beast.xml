@@ -29,4 +29,11 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
   <tail>beast-doc</tail>
 </order>
 
+<edge from="envmodules-common">
+  <to>beast-modules-common</to>
+</edge>
+<order head="envmodules-common">
+  <tail>beast-modules-common</tail>
+</order>
+
 </graph>
