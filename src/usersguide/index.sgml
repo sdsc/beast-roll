@@ -13,13 +13,13 @@ $Id$
 <book>
 <bookinfo>
 
-	<title> beast Roll: Users Guide </title>
+	<title> Beast Users Guide </title>
 
-        <edition>Version &document_version;</edition>
-        <pubdate>&document_pubdate;</pubdate>
+        <edition>&document-version;</edition>
+        <pubdate>&document-pubdate;</pubdate>
         <copyright id="copyright" xreflabel="copyright">
-                <year>&document_year;</year>
-                <holder>&document_copyright;</holder>   
+                <year>&document-year;</year>
+                <holder>&document-copyright;</holder>   
         </copyright>
 
         <releaseinfo>
@@ -28,16 +28,16 @@ $Id$
 
         <legalnotice>
                 <para>
-                This document is subject to the Rocks License 
+                This document is subject to the &rocks; License 
                 (see <xref linkend="rocks-copyright">).
                 </para>
         </legalnotice>
 
 </bookinfo>
 
-&source_preface;
-&source_roll-overview;
-&source_installing;
-&source_appendix;
+&source-preface;
+&source-roll-overview;
+&source-installing;
+&source-appendix;
 
 </book>

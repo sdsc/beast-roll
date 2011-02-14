@@ -9,7 +9,7 @@ Appendix for Copyright and License notices
 -->
 
 <appendix id="rocks-copyright" xreflabel="Appendix A: Rocks Copyright">
-<title>Rocks Copyright</title>
+<title>&rocks; Copyright</title>
 <para>
 <screen>
 &rockscopyright;
@@ -21,7 +21,7 @@ Appendix for Copyright and License notices
 <appendix>
 <title>Third Party Copyrights and Licenses</title>
 
-&source_roll-copyright-disclaimer;
+&source-roll-copyright-disclaimer;
 
 <section>
 	<title>beast License and Copyright</title>
