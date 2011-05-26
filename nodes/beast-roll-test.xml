@@ -50,6 +50,7 @@ SKIP: {
   $output = `java -jar /opt/beast/lib/beast.jar /opt/beast/examples/new_benchmark.xml 2>&1`;
   ok($output =~ /Operator analysis/ && $output =~ /\d+\.\d+ seconds\s*$/,
      'beast benchmark run');
+  `/bin/rm -f mcmc.operators new_benchmark.log new_benchmark.trees`;
 }
 
 # beast-modules-common
