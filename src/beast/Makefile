@@ -60,15 +60,12 @@ REDHAT.ROOT = $(PWD)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
 
 build:
+	tar xvf $(NAME)-$(VERSION).tgz
 
 install::
-	mkdir -p $(ROOT)/$(PKGROOT)
-	( \
-	  tar xvf $(NAME)-$(VERSION).tgz; \
-	  cd $(NAME)-$(VERSION); \
-	  cp -r * $(ROOT)/$(PKGROOT); \
-	  chmod 0755 $(ROOT)/$(PKGROOT)/bin/* \
-	)
+	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
+	cp -r $(NAME)-$(VERSION)/* $(ROOT)/$(PKGROOT)
+	chmod 0755 $(ROOT)/$(PKGROOT)/bin/*
 
 clean::
 	rm -rf $(NAME)-$(VERSION)
