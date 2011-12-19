@@ -20,6 +20,7 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <post>
 
 <file name="/etc/profile.d/beast.csh" perms="0755" >
+setenv BEASTHOME /opt/beast
 set path = ( /opt/beast/bin $path )
 if ($?CLASSPATH) then
   setenv CLASSPATH /opt/beast/lib:$CLASSPATH
@@ -29,6 +30,7 @@ endif
 </file>
 
 <file name="/etc/profile.d/beast.sh" perms="0755" >
+export BEASTHOME=/opt/beast
 export PATH=/opt/beast/bin:$PATH
 if test -n "$CLASSPATH"; then
   export CLASSPATH=/opt/beast/lib:$CLASSPATH

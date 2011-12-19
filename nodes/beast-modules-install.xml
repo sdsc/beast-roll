@@ -34,6 +34,7 @@ if test -f /etc/profile.d/beast.sh; then
 
 <file name="/opt/modulefiles/applications/beast/1.5.2" perms="0644">
 #%Module1.0
+setenv BEASTHOME /opt/beast
 prepend-path PATH /opt/beast/bin
 prepend-path CLASSPATH /opt/beast/lib
 </file>
