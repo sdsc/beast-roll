@@ -29,22 +29,11 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
   <tail>beast-doc</tail>
 </order>
 
-<edge from="envmodules-common">
-  <to>beast-modules-install</to>
-</edge>
-<order head="envmodules-common">
-  <tail>beast-modules-install</tail>
-</order>
-
 <edge from="base">
   <to>beast-roll-test</to>
 </edge>
 <order head="base">
   <tail>beast-roll-test</tail>
-</order>
-
-<order head="beast-install">
-  <tail>beast-modules-install</tail>
 </order>
 
 </graph>

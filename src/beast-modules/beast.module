@@ -1,0 +1,4 @@
+#%Module1.0
+setenv BEASTHOME /opt/beast
+prepend-path PATH /opt/beast/bin
+prepend-path CLASSPATH /opt/beast/lib

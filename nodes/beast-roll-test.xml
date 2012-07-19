@@ -46,33 +46,19 @@ if($appliance =~ /$installedOnAppliancesPattern/) {
   ok(! $isInstalled, 'beast not installed');
 }
 SKIP: {
-  skip 'beast not installed', 1 if ! $isInstalled;
-  $output = `java -jar /opt/beast/lib/beast.jar /opt/beast/examples/new_benchmark.xml 2>&1`;
-  ok($output =~ /Operator analysis/ && $output =~ /\d+\.\d+ seconds\s*$/,
-     'beast benchmark run');
-  `/bin/rm -f mcmc.operators new_benchmark.log new_benchmark.trees`;
-}
 
-# beast-modules-common
-SKIP: {
+  skip 'beast not installed', 4 if ! $isInstalled;
+  $output = `java -jar /opt/beast/lib/beast.jar /opt/beast/examples/Benchmarks/old_benchmark.xml 2>&1`;
+  ok($output =~ /total operations\s*=\s*\d+/, 'beast benchmark run');
+  `/bin/rm -f mcmc.operators benchmark.*`;
 
-  skip 'beast not installed', 1 if ! $isInstalled;
-  my $modulesInstalled = -f '/etc/profile.d/modules.sh';
-  if($modulesInstalled) {
-    ok(! -f '/etc/profile.d/beast.csh' &&
-       ! -f '/etc/profile.d/beast.sh', 'beast profile.d removed');
-    like($ENV{MODULEPATH}, qr#/opt/modulefiles/applications#,
-         'MODULEPATH set for applications');
-    `/bin/ls /opt/modulefiles/applications/beast/[0-9]* 2>&1`;
-    ok($? == 0, 'beast module installed');
-    `/bin/ls /opt/modulefiles/applications/beast/.version.[0-9]* 2>&1`;
-    ok($? == 0, 'beast version module installed');
-    ok(-l '/opt/modulefiles/applications/beast/.version',
-       'beast version module link created');
-  } else {
-    ok(-f '/etc/profile.d/beast.csh' && -f '/etc/profile.d/beast.sh',
-       'beast profile.d installed');
-  }
+  skip 'modules not installed', 3 if ! -f '/etc/profile.d/modules.sh';
+  `/bin/ls /opt/modulefiles/applications/beast/[0-9]* 2>&1`;
+  ok($? == 0, 'beast module installed');
+  `/bin/ls /opt/modulefiles/applications/beast/.version.[0-9]* 2>&1`;
+  ok($? == 0, 'beast version module installed');
+  ok(-l '/opt/modulefiles/applications/beast/.version',
+     'beast version module link created');
 
 }
 ]]>
