@@ -1,0 +1,7 @@
+This roll bundles the Bayesian Evolutionary Analysis Sampling Trees package.
+To build, execute
+
+% make
+
+in this directory.  In addition to the software itself, the roll installs
+BEAST environment module files in /opt/modulefiles/applications/beast.

@@ -15,10 +15,10 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <changelog>
 </changelog>
 
-<edge from="compute">
+<edge from="base">
   <to>beast-install</to>
 </edge>
-<order head="compute">
+<order head="base">
   <tail>beast-install</tail>
 </order>
 
@@ -27,13 +27,6 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 </edge>
 <order head="server">
   <tail>beast-doc</tail>
-</order>
-
-<edge from="base">
-  <to>beast-roll-test</to>
-</edge>
-<order head="base">
-  <tail>beast-roll-test</tail>
 </order>
 
 </graph>

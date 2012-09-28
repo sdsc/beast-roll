@@ -1,25 +1,4 @@
-<?xml version="1.0" standalone="no"?>
-
-<kickstart>
-
-<description>
-The beast roll installation test.
-</description>
-
-<copyright>
-Copyright (c) 2000 - 2011 The Regents of the University of California.
-All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
-</copyright>
-
-<changelog>
-</changelog>
-
-<post>
-
-/bin/mkdir -m 0755 /root/rolltests
-
-<file name="/root/rolltests/beast.t" perms="0755">
-<![CDATA[#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # beast roll installation test.  Usage:
 # beast.t [nodetype]
 #   where nodetype is one of "Compute", "Dbnode", "Frontend" or "Login"
@@ -29,7 +8,7 @@ use Test::More qw(no_plan);
 
 my $appliance = $#ARGV >= 0 ? $ARGV[0] :
                 -d '/export/rocks/install' ? 'Frontend' : 'Compute';
-my $installedOnAppliancesPattern = 'Compute';
+my $installedOnAppliancesPattern = '.';
 my $isInstalled = -d '/opt/beast';
 my $output;
 
@@ -61,9 +40,3 @@ SKIP: {
      'beast version module link created');
 
 }
-]]>
-</file>
-
-</post>
-
-</kickstart> 
