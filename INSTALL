@@ -1,7 +1,13 @@
 This roll bundles the Bayesian Evolutionary Analysis Sampling Trees package.
-To build, execute
+To install, execute these instructions on a Rocks development machine (e.g., a
+frontend), starting in this directory:
 
 % make
+% rocks add roll *.iso
+% rocks enable roll beast
+% cd /export/rocks/install
+% rocks create distro
+% rocks run roll beast | bash
 
-in this directory.  In addition to the software itself, the roll installs
-BEAST environment module files in /opt/modulefiles/applications/beast.
+In addition to the software itself, the roll installs BEAST environment module
+files in /opt/modulefiles/applications/beast.
