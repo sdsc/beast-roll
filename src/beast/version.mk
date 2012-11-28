@@ -1,3 +1,3 @@
 NAME    = beast
-VERSION = 1.7.2
-RELEASE = 1
+VERSION = 1.7.4
+RELEASE = 0
