@@ -1,4 +1,10 @@
 #%Module1.0
-setenv BEASTHOME /opt/beast
-prepend-path PATH /opt/beast/bin
-prepend-path CLASSPATH /opt/beast/lib
+module-whatis "beast"
+module-whatis "Version: VERSION"
+module-whatis "Description: beast"
+module-whatis "Compiler: intel"
+set BEAST /opt/beast/VERSION
+set BEAST_LIB /opt/beast/VERSION/lib
+prepend-path PATH $BEAST/bin
+prepend-path LD_LIBRARY_PATH $BEAST_LIB
+prepend-path LIBPATH $BEAST_LIB

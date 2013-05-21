@@ -55,12 +55,44 @@
 # @Copyright@
 #
 
+ifndef ROLLCOMPILER
+  ROLLCOMPILER = icc 
+endif
+ifndef ROLLMPI
+  ROLLMPI = mvapich2
+endif
+ifndef ROLLNETWORK
+  ROLLNETWORK = ib
+endif
+
 -include $(ROLLSROOT)/etc/Rolls.mk
 
-default: roll
+default:
+# Copy and substitute lines of nodes/*.in that reference ROLLCOMPILER,
+# ROLLNETWORK, and/or ROLLMPI, making one copy for each
+# ROLLCOMPILER/ROLLNETWORK/ROLLMPI value
+	for i in `ls nodes/*.in`; do \
+	  export o=`echo $$i | sed 's/\.in//'`; \
+	  cp $$i $$o; \
+	  for c in $(ROLLCOMPILER); do \
+	    perl -pi -e 'print and s/ROLLCOMPILER/'$${c}'/g if m/ROLLCOMPILER/' $$o; \
+	  done; \
+	  for n in $(ROLLNETWORK); do \
+	    perl -pi -e 'print and s/ROLLNETWORK/'$${n}'/g if m/ROLLNETWORK/' $$o; \
+	  done; \
+	  for m in $(ROLLMPI); do \
+	    perl -pi -e 'print and s/ROLLMPI/'$${m}'/g if m/ROLLMPI/' $$o; \
+	  done; \
+	  perl -pi -e '$$_ = "" if m/ROLL(COMPILER|NETWORK|MPI)/' $$o; \
+	done
+	$(MAKE) ROLLCOMPILER="$(ROLLCOMPILER)" ROLLNETWORK="$(ROLLNETWORK)" ROLLMPI="$(ROLLMPI)" roll
 
 clean::
 	rm -f _arch bootstrap.py
 
 cvsclean: clean
+	for i in `ls nodes/*.in`; do \
+	  export o=`echo $$i | sed 's/\.in//'`; \
+	  rm -f $$o; \
+	done
 	rm -fr RPMS SRPMS

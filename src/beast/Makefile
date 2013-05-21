@@ -53,20 +53,55 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # @Copyright@
-#
 
-PKGROOT = /opt/$(NAME)
-SOURCE = beast-$(VERSION)
+ROLLCOMPILER = intel
+ROLLNETWORK = ib
+ROLLMPI = mvapich2
+
+PKGROOT = /opt/beast/$(VERSION)
+SOURCE = BEASTv$(VERSION)
 REDHAT.ROOT = $(PWD)/../../
+RPM.EXTRAS=%define __os_install_post /usr/lib/rpm/brp-compress
+
 -include $(ROCKSROOT)/etc/Rules.mk
 
+COMPILERSETUP = \
+  if test -e /etc/profile.d/modules.sh; then \
+    . /etc/profile.d/modules.sh; \
+    latestModule=`module avail 2>&1 | grep -o '$(ROLLCOMPILER)/[^ (]*' | sed 's/$(ROLLCOMPILER).//' | sort -t. -k1,1n -k2,2n -k3,3n | tail -1`; \
+    module load $(ROLLCOMPILER)/$${latestModule}; \
+    module load gnubase; \
+  fi
+
+COMPILE_FLAGS = -O3 -xHOST
+CCOMP = icc
+CXXCOMP = icpc
+
 build:
-	tar xvf $(SOURCE).tgz
+	tar zxvf $(SOURCE).tar.gz
+	( \
+	  export CC=$(CCOMP); \
+	  export CFLAGS="$(COMPILE_FLAGS)"; \
+	  export CXX=$(CXXCOMP); \
+	  export CXXFLAGS="$(COMPILE_FLAGS)"; \
+	  export LC_ALL="en_US" ; \
+	  export INSTALLPREFIX=$(PKGROOT); \
+	  cd $(SOURCE)/native ; \
+	  ant clean; \
+	  make -f Makefile.icc ; \
+	  cd ../ ; \
+	  ant linux; \
+	)
 
 install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
-	cp -r $(SOURCE)/* $(ROOT)/$(PKGROOT)
-	chmod 0755 $(ROOT)/$(PKGROOT)/bin/*
+	mkdir -p -m 755 $(PKGROOT)
+	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
+	( \
+	  cd $(SOURCE) ; \
+	  cp -r release/Linux/BEASTv1.7.5/* $(PKGROOT); \
+	)
+	umount $(PKGROOT)
 
 clean::
 	rm -rf $(SOURCE)
