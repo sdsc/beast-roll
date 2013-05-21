@@ -1,9 +1,10 @@
 <?xml version="1.0" standalone="no"?>
 
-<graph>
+<kickstart>
 
 <description>
 BEAST
+Version 1.7.5
 </description>
 
 <copyright>
@@ -14,11 +15,7 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <changelog>
 </changelog>
 
-<edge from="base">
-  <to>beast-common</to>
-</edge>
-<order from="base">
-  <tail>beast-common</tail>
-</order>
+<package>beast_intel</package>
+<package>beast-modules_intel</package>
 
-</graph>
+</kickstart>
