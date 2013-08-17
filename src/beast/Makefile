@@ -58,7 +58,7 @@ ROLLCOMPILER = intel
 ROLLNETWORK = ib
 ROLLMPI = mvapich2
 
-PKGROOT = /opt/beast
+PKGROOT = /opt/beast/v1.7.5
 SOURCE = BEASTv$(VERSION)
 REDHAT.ROOT = $(PWD)/../../
 RPM.EXTRAS=%define __os_install_post /usr/lib/rpm/brp-compress
@@ -78,6 +78,7 @@ CXXCOMP = icpc
 build:
 	tar zxvf $(SOURCE).tar.gz
 	( \
+	  $(COMPILERSETUP); \
 	  export CC=$(CCOMP); \
 	  export CFLAGS="$(COMPILE_FLAGS)"; \
 	  export CXX=$(CXXCOMP); \
