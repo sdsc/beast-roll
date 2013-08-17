@@ -68,12 +68,10 @@ RPM.EXTRAS=%define __os_install_post /usr/lib/rpm/brp-compress
 COMPILERSETUP = \
   if test -e /etc/profile.d/modules.sh; then \
     . /etc/profile.d/modules.sh; \
-    latestModule=`module avail 2>&1 | grep -o '$(ROLLCOMPILER)/[^ (]*' | sed 's/$(ROLLCOMPILER).//' | sort -t. -k1,1n -k2,2n -k3,3n | tail -1`; \
-    module load $(ROLLCOMPILER)/$${latestModule}; \
-    module load gnubase; \
+    module load beagle; \
   fi
 
-COMPILE_FLAGS = -O3 -xHOST
+COMPILE_FLAGS = -xhost
 CCOMP = icc
 CXXCOMP = icpc
 
@@ -85,10 +83,11 @@ build:
 	  export CXX=$(CXXCOMP); \
 	  export CXXFLAGS="$(COMPILE_FLAGS)"; \
 	  export LC_ALL="en_US" ; \
+	  export LD_LIBRARY_PATH=${BEAGLE_HOME}/lib:${LD_LIBRARY_PATH}; \
+	  export LIBPATH=${BEAGLE_HOME}/lib:${LD_LIBRARY_PATH}; \
 	  export INSTALLPREFIX=$(PKGROOT); \
 	  cd $(SOURCE)/native ; \
-	  ant clean; \
-	  make -f Makefile.icc ; \
+	  make -f Makefile.icc; \
 	  cd ../ ; \
 	  ant linux; \
 	)
