@@ -1,5 +1,5 @@
 ROLLNAME = beast
-RELEASE  = 2
+RELEASE  = 4
 COLOR    = orange
 
 REDHAT.ROOT = $(PWD)
