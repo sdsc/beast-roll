@@ -1,3 +1,14 @@
 NAME    = beast
 VERSION = 1.7.5
 RELEASE = 0
+PKGROOT = /opt/beast/v1.7.5
+
+SRC_SUBDIR         = beast
+
+SOURCE_NAME        = BEAST
+SOURCE_VERSION     = $(VERSION)
+SOURCE_SUFFIX      = tar.gz
+SOURCE_PKG         = $(SOURCE_NAME)v$(SOURCE_VERSION).$(SOURCE_SUFFIX)
+SOURCE_DIR         = $(SOURCE_PKG:%.$(SOURCE_SUFFIX)=%)
+
+TAR_GZ_PKGS        = $(SOURCE_PKG)
