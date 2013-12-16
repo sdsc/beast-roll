@@ -11,7 +11,7 @@ For more information about BEAST please visit the <a href="http://beast.bio.ed.a
 
 To build/install this roll you must have root access to a Rocks development machine (e.g., a frontend or development appliance).
 
-If your Rocks development machine does *not* have Internet access you must download the appropriate R source file(s) using a machine that does have Internet access and copy them into the `src/beast` directory on your Rocks development machine.
+If your Rocks development machine does *not* have Internet access you must download the appropriate beast source file(s) using a machine that does have Internet access and copy them into the `src/beast` directory on your Rocks development machine.
 
 
 ## Dependencies
