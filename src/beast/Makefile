@@ -56,10 +56,6 @@
 #
 # $Log$
 
-ROLLCOMPILER = intel
-ROLLNETWORK = ib
-ROLLMPI = mvapich2
-
 REDHAT.ROOT = $(CURDIR)/../../
 RPM.EXTRAS=%define __os_install_post /usr/lib/rpm/brp-compress
 
@@ -71,6 +67,7 @@ COMPILERSETUP = \
   if test -e /etc/profile.d/modules.sh; then \
     . /etc/profile.d/modules.sh; \
     module load beagle; \
+    module load intel; \
   fi
 
 COMPILE_FLAGS = -xhost
@@ -101,7 +98,7 @@ install::
 	mount --bind $(ROOT)/$(PKGROOT) $(PKGROOT)
 	( \
 	  cd $(SOURCE_DIR) ; \
-	  cp -r release/Linux/BEASTv1.7.5/* $(PKGROOT); \
+	  cp -r release/Linux/BEASTv$(VERSION)/* $(PKGROOT); \
 	)
 	umount $(PKGROOT)
 	@echo "::: Package $(NAME) install complete :::"
