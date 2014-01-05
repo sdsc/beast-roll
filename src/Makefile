@@ -1,4 +1,3 @@
-#
 # $Id$
 #
 # @Copyright@
@@ -56,33 +55,15 @@
 # @Copyright@
 #
 # $Log$
-#
 
--include $(shell ${ROCKSROOT}/bin/arch).mk
--include $(shell ${ROCKSROOT}/bin/os).mk
+-include $(shell $(ROCKSROOT)/bin/arch).mk
+-include $(shell $(ROCKSROOT)/bin/os).mk
 
-default:
-	@echo "copyright|rpm|pkg|clean"
+default:	pkg
 
-copyright rpm pkg clean::
+copyright pkg rpm clean::
 	for i in $(SRCDIRS) ; do \
-	  grep -q ROLLCOMPILER $$i/version.mk; \
-	  if test $$? -eq 0; then \
-	    for c in $(ROLLCOMPILER); do \
-	      grep -q ROLLMPI $$i/version.mk; \
-	      if test $$? -eq 0; then \
-	        for m in $(ROLLMPI); do \
-	          for n in $(ROLLNETWORK); do \
-	            echo make $@ in $$i with ROLLCOMPILER=$$c ROLLMPI=$$m ROLLNETWORK=$$n; \
-	            (cd $$i; $(MAKE) ROLLCOMPILER=$$c ROLLMPI=$$m ROLLNETWORK=$$n $@); \
-	          done; \
-	        done; \
-	      else \
-	        echo make $@ in $$i with ROLLCOMPILER=$$c; \
-	        (cd $$i; $(MAKE) ROLLCOMPILER=$$c $@); \
-	      fi; \
-	    done; \
-	  else \
-	    (cd $$i; $(MAKE) ROLLCOMPILER="$(ROLLCOMPILER)" ROLLMPI="$(ROLLMPI)" ROLLNETWORK="$(ROLLNETWORK)" $@) ; \
-	  fi; \
+		cd $$i; \
+		$(MAKE) $@ || exit 2 ; \
+		cd ..; \
 	done
