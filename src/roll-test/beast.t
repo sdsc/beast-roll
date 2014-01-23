@@ -13,7 +13,7 @@ my $isInstalled = -d '/opt/beast';
 my $output;
 
 # beast-doc.xml
-my $TESTFILE=tmpbeast;
+my $TESTFILE='tmpbeast';
 SKIP: {
   skip 'not server', 1 if $appliance ne 'Frontend';
   ok(-d '/var/www/html/roll-documentation/beast', 'doc installed');
