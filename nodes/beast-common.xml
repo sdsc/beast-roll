@@ -16,7 +16,7 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 </changelog>
 
 <package>beast</package>
-<package>beast-1.8</package>
+<package>beast-1.8.0</package>
 <package>beast-modules</package>
 <package>beast-roll-test</package>
 
