@@ -1,7 +1,7 @@
 NAME    = beast
 VERSION = 1.7.5
 RELEASE = 0
-PKGROOT = /opt/beast
+PKGROOT = /opt/beast/$(VERSION)
 
 SRC_SUBDIR         = beast
 

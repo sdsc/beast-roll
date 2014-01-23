@@ -3,12 +3,16 @@ module-whatis "beast"
 module-whatis "Version: VERSION"
 module-whatis "Description: beast"
 module-whatis "Compiler: intel"
-set beasthome /opt/beast
-setenv BEAST $beasthome
-setenv BEAST_HOME $beasthome
-prepend-path PATH $beasthome/bin
 if {  [ module-info mode load ]  } {
       module load beagle
 } elseif {  [ module-info mode remove ]  } {
       module unload beagle
 }
+set     beasthome       /opt/beast/VERSION
+setenv  BEAST           $beasthome
+setenv  BEAST_HOME      $beasthome
+setenv  BEAST_LIB       $beasthome/lib
+append-path     PATH    $beasthome/bin
+append-path     LD_LIBRARY_PATH $beasthome/lib
+append-path     CLASSPATH       \$beasthome/lib/beast.jar
+append-path     CLASSPATH       \$beasthome/lib/beauti.jar

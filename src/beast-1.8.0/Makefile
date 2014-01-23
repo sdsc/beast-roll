@@ -67,7 +67,7 @@ ROLLCOMPILER=intel
 COMPILERSETUP = \
   if test -e /etc/profile.d/modules.sh; then \
     . /etc/profile.d/modules.sh; \
-    module load beagle; \
+    module load beagle/2.1; \
     module load $(ROLLCOMPILER); \
   fi
 
@@ -75,7 +75,7 @@ COMPILE_FLAGS = -xhost
 CCOMP = icc
 CXXCOMP = icpc
 
-build: $(SRC_DIRS)
+build: $(SOURCE_DIR)
 	( \
 	  $(COMPILERSETUP); \
 	  export CC=$(CCOMP); \
@@ -86,9 +86,15 @@ build: $(SRC_DIRS)
 	  export LD_LIBRARY_PATH=${BEAGLE_HOME}/lib:${LD_LIBRARY_PATH}; \
 	  export LIBPATH=${BEAGLE_HOME}/lib:${LD_LIBRARY_PATH}; \
 	  export INSTALLPREFIX=$(PKGROOT); \
+          patch $(SOURCE_DIR)/release/Linux/scripts/beast patch-files/beast.patch; \
 	  cd $(SOURCE_DIR)/native ; \
-	  make -f Makefile.icc; \
-	  cd ../ ; \
+          for onemkfile in Makefile*; do \
+              unexpand $${onemkfile} > $${onemkfile}.unexpanded;\
+          done; \
+	  make -f Makefile.icc.unexpanded; \
+          cd ..; \
+          ant build; \
+          and dist-all; \
 	  ant linux; \
 	)
 	@echo "::: Package $(NAME) build complete :::"
@@ -103,6 +109,12 @@ install::
 	)
 	umount $(PKGROOT)
 	@echo "::: Package $(NAME) install complete :::"
+
+$(SOURCE_DIR):
+	( \
+            mkdir $(SOURCE_DIR); \
+            svn co http://beast-mcmc.googlecode.com/svn/tags/beast_release_1_8_0/ ${SOURCE_DIR} \
+        )
 
 clean::
 	rm -rf $(SOURCE_DIR)
