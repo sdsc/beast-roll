@@ -9,5 +9,5 @@ setenv  BEAST_HOME      $beasthome
 setenv  BEAST_LIB       $beasthome/lib
 append-path     PATH    $beasthome/bin
 append-path     LD_LIBRARY_PATH $beasthome/lib
-append-path     CLASSPATH       \$beasthome/lib/beast.jar
-append-path     CLASSPATH       \$beasthome/lib/beauti.jar
+append-path     CLASSPATH       $beasthome/lib/beast.jar
+append-path     CLASSPATH       $beasthome/lib/beauti.jar
