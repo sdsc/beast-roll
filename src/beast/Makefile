@@ -63,7 +63,6 @@ RPM.EXTRAS=%define __os_install_post /usr/lib/rpm/brp-compress
 include Rules.mk
 include pull.mk
 
-ROLLCOMPILER=intel
 COMPILERSETUP = \
   if test -e /etc/profile.d/modules.sh; then \
     . /etc/profile.d/modules.sh; \
@@ -71,9 +70,20 @@ COMPILERSETUP = \
     module load $(ROLLCOMPILER); \
   fi
 
-COMPILE_FLAGS = -xhost
-CCOMP = icc
-CXXCOMP = icpc
+CCOMP = gcc
+CXXCOMP = g++
+COMPILE_FLAGS = -O3
+ifeq ("$(ROLLCOMPILER)", "intel")
+  CCOMP = icc
+  CXXCOMP = icpc
+  COMPILE_FLAGS = -xhost
+endif
+ifeq ("$(ROLLCOMPILER)", "pgi")
+  COMPILE_FLAGS = -fast
+  CCOMP = pgcc
+  CXXCOMP = pgCC
+endif
+
 
 build: $(SRC_DIRS)
 	( \
