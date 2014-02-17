@@ -85,7 +85,7 @@ ifeq ("$(ROLLCOMPILER)", "pgi")
   CXXCOMP = pgCC
 endif
 
-build: $(SOURCE_DIR)
+build: $(SRC_DIRS)
 	( \
 	  $(COMPILERSETUP); \
 	  export CC=$(CCOMP); \
@@ -120,11 +120,5 @@ install::
 	umount $(PKGROOT)
 	@echo "::: Package $(NAME) install complete :::"
 
-$(SOURCE_DIR):
-	( \
-            mkdir $(SOURCE_DIR); \
-            svn co http://beast-mcmc.googlecode.com/svn/tags/beast_release_1_8_0/ ${SOURCE_DIR} \
-        )
-
 clean::
-	rm -rf $(SOURCE_DIR)
+	
