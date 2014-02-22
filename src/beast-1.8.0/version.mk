@@ -4,7 +4,7 @@ VERSION = 1.8.0
 RELEASE = 0
 PKGROOT = /opt/beast/$(VERSION)
 
-SRC_SUBDIR         = beast
+SRC_SUBDIR         = beast-$(VERSION)
 
 SOURCE_NAME        = beast
 SOURCE_VERSION     = $(VERSION)
