@@ -1,6 +1,5 @@
 VERSION = 1.8.0
 NAME    = beast-$(VERSION)_$(ROLLCOMPILER)
-VERSION = 1.8.0
 RELEASE = 0
 PKGROOT = /opt/beast/$(VERSION)
 

@@ -15,7 +15,6 @@ All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 <changelog>
 </changelog>
 
-<package>beast_ROLLCOMPILER</package>
 <package>beast-1.8.0_ROLLCOMPILER</package>
 <package>beast-modules</package>
 <package>beast-roll-test</package>

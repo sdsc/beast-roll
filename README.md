@@ -21,7 +21,7 @@ development machine.
 
 ## Dependencies
 
-Unknown at this time.
+beagle roll
 
 
 ## Building

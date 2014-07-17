@@ -29,10 +29,6 @@ SKIP: {
 
   `mkdir -p $TESTFILE.dir`;
   skip 'beast not installed', 4 if ! $isInstalled;
-  $output = `cd $TESTFILE.dir;. /etc/profile.d/modules.sh;module load beast; beast /opt/beast/1.7.5/examples/Benchmarks/old_benchmark.xml 2>&1`;
-  ok($output =~ /total operations\s*=\s*\d+/, 'beast benchmark run');
-   `rm -rf $TESTFILE.dir`;
-  `mkdir -p $TESTFILE.dir`;
   $output = `cd $TESTFILE.dir;. /etc/profile.d/modules.sh;module load beast/1.8.0; beast /opt/beast/1.8.0/examples/Benchmarks/old_benchmark.xml 2>&1`;
   ok($output =~ /total operations\s*=\s*\d+/, 'beast 1.8 benchmark run');
   skip 'modules not installed', 3 if ! -f '/etc/profile.d/modules.sh';
