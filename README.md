@@ -21,7 +21,7 @@ development machine.
 
 ## Dependencies
 
-beagle roll
+beagle
 
 
 ## Building
@@ -40,6 +40,24 @@ proceed to the installation step. If you built the roll on a Rocks development
 appliance you need to copy the roll to your Rocks frontend before continuing
 with installation.
 
+This roll source supports building with different compilers; by default, it
+builds using the gnu compilers.  To build for a different configuration, use
+the `ROLLCOMPILER` make variable, e.g.,
+
+```shell
+% make ROLLCOMPILER=intel
+```
+
+The build process currently supports one of the values "intel", "pgi",
+and "gnu" for the `ROLLCOMPILER` variable, defaulting to "gnu".  If possible,
+the build process uses the ROLLCOMPILER value to load an environment module,
+and it supports using the ROLLCOMPILER value to specify a particular compiler
+version, e.g.,
+
+```shell
+% make ROLLCOMPILER=gnu/4.8.1
+```
+
 
 ## Installation
 
@@ -57,7 +75,7 @@ In addition to the software itself, the roll installs BEAST environment module
 files in:
 
 ```shell
-/opt/modulefiles/applications/.(compiler)/beast.
+/opt/modulefiles/applications/beast.
 ```
 
 
@@ -69,11 +87,5 @@ the test scripts execute the following command(s):
 
 ```shell
 % /root/rolltests/beast.t 
-ok 1 - beast is installed
-ok 2 - beast test run
-ok 3 - beast module installed
-ok 4 - beast version module installed
-ok 5 - beast version module link created
-1..5
 ```
 
