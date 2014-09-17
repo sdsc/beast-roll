@@ -12,12 +12,7 @@ my $installedOnAppliancesPattern = '.';
 my $isInstalled = -d '/opt/beast';
 my $output;
 
-# beast-doc.xml
-my $TESTFILE='tmpbeast';
-SKIP: {
-  skip 'not server', 1 if $appliance ne 'Frontend';
-  ok(-d '/var/www/html/roll-documentation/beast', 'doc installed');
-}
+my $TESTFILE = 'tmpbeast';
 
 # beast-install.xml
 if($appliance =~ /$installedOnAppliancesPattern/) {
