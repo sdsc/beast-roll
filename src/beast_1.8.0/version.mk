@@ -1,14 +1,11 @@
-# Note: normally this package is built with a single compiler, and the rpms
-# from multiple compiler builds will overwrite each other.
-
 ifndef ROLLCOMPILER
   ROLLCOMPILER = gnu
 endif
 COMPILERNAME := $(firstword $(subst /, ,$(ROLLCOMPILER)))
 
-NAME           = beast_$(VERSION)_$(COMPILERNAME)
+NAME           = sdsc-beast_$(VERSION)
 VERSION        = 1.8.0
-RELEASE        = 1
+RELEASE        = 2
 PKGROOT        = /opt/beast/$(VERSION)
 
 SRC_SUBDIR     = beast-$(VERSION)

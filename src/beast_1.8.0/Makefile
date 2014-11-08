@@ -61,36 +61,40 @@ RPM.EXTRAS=%define __os_install_post /usr/lib/rpm/brp-compress
 
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
-include pull.mk
+include $(SDSCDEVEL)/Pull.mk
+include $(SDSCDEVEL)/Rules.mk
 
-CC = gcc
-CXX = g++
 COMPILE_FLAGS = -O3
 ifeq ("$(COMPILERNAME)", "intel")
-  CC = icc
-  CXX = icpc
   COMPILE_FLAGS = -xhost
 else ifeq ("$(COMPILERNAME)", "pgi")
-  CC = pgcc
-  CXX = pgCC
   COMPILE_FLAGS = -fast
 endif
 
-BEAGLESETUP = \
-  module load beagle/2.1 || true; \
-  echo === BEAGLE_HOME ===; \
-  echo $${BEAGLE_HOME}
+MODULE_LOAD_BEAGLE = $(call MODULE_LOAD_PACKAGE, beagle, BEAGLE_HOME)
 
-COMPILERSETUP = \
-  module load $(ROLLCOMPILER) || true; \
-  echo === Compiler and version ===; \
-  $(CC) --version
+LICENSE_FILES = $(SOURCE_DIR)/LICENSE
+
+$(NAME).spec: DESCRIPTION LICENSE
+
+DESCRIPTION:
+	$(MODULE_LOAD_CC); \
+	( \
+	  $(DESCRIBE_PKG); \
+	  $(DESCRIBE_CC) \
+	) > $@
+
+LICENSE: $(SRC_DIRS)
+	if ! grep -q "GNU LESSER GENERAL PUBLIC LICENSE" $(SOURCE_DIR)/LICENSE; then \
+	  exit 2; \
+	fi
+	echo -e LPGL > $@
 
 build: $(SRC_DIRS)
 	patch $(SOURCE_DIR)/release/Linux/scripts/beast patch-files/beast.patch
 	( \
-	  $(COMPILERSETUP); \
-	  $(BEAGLESETUP); \
+	  $(MODULE_LOAD_CC); \
+	  $(MODULE_LOAD_BEAGLE); \
 	  export CC=$(CC); \
 	  export CFLAGS="$(COMPILE_FLAGS)"; \
 	  export CXX=$(CXX); \
@@ -116,4 +120,4 @@ install::
 	@echo "::: Package $(NAME) install complete :::"
 
 clean::
-	rm -rf $(SOURCE_DIR)
+	rm -rf $(SOURCE_DIR) DESCRIPTION LICENSE
