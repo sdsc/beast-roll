@@ -26,12 +26,11 @@ beagle
 
 ## Building
 
-To build the beast-roll, execute these instructions on a Rocks development
+To build the beast-roll, execute this on a Rocks development
 machine (e.g., a frontend or development appliance):
 
 ```shell
-% make default 2>&1 | tee build.log
-% grep "RPM build error" build.log
+% make 2>&1 | tee build.log
 ```
 
 If nothing is returned from the grep command then the roll should have been
@@ -48,15 +47,10 @@ the `ROLLCOMPILER` make variable, e.g.,
 % make ROLLCOMPILER=intel
 ```
 
-The build process currently supports one of the values "intel", "pgi",
-and "gnu" for the `ROLLCOMPILER` variable, defaulting to "gnu".  If possible,
-the build process uses the ROLLCOMPILER value to load an environment module,
-and it supports using the ROLLCOMPILER value to specify a particular compiler
-version, e.g.,
-
-```shell
-% make ROLLCOMPILER=gnu/4.8.1
-```
+A successful build will create the file `beast-*.disk1.iso`.  If you built the
+roll on a Rocks frontend, proceed to the installation step. If you built the
+roll on a Rocks development appliance, you need to copy the roll to your Rocks
+frontend before continuing with installation.
 
 
 ## Installation
@@ -75,14 +69,14 @@ In addition to the software itself, the roll installs BEAST environment module
 files in:
 
 ```shell
-/opt/modulefiles/applications/beast.
+/opt/modulefiles/applications/beast
 ```
 
 
 ## Testing
 
 The beast-roll includes a test script which can be run to verify proper
-installation of the beast-roll documentation, binaries and module files. To run
+installation of the roll documentation, binaries and module files. To run
 the test scripts execute the following command(s):
 
 ```shell
