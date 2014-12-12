@@ -85,9 +85,7 @@ DESCRIPTION:
 	) > $@
 
 LICENSE: $(SRC_DIRS)
-	if ! grep -q "GNU LESSER GENERAL PUBLIC LICENSE" $(SOURCE_DIR)/LICENSE; then \
-	  exit 2; \
-	fi
+	$(CHECK_LICENSE_FILES)
 	echo -e LPGL > $@
 
 build: $(SRC_DIRS)
