@@ -2,7 +2,7 @@ PACKAGE     = beast
 CATEGORY    = applications
 
 NAME        = sdsc-$(PACKAGE)-modules
-RELEASE     = 4
+RELEASE     = 5
 PKGROOT     = /opt/modulefiles/$(CATEGORY)/$(PACKAGE)
 
 VERSION_SRC = $(REDHAT.ROOT)/src/$(PACKAGE)_1.8.1/version.mk
