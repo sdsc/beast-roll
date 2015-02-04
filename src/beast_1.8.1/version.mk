@@ -1,6 +1,6 @@
 NAME           = sdsc-beast_$(VERSION)
 VERSION        = 1.8.1
-RELEASE        = 6
+RELEASE        = 7
 PKGROOT        = /opt/beast/$(VERSION)
 
 SRC_SUBDIR     = beast

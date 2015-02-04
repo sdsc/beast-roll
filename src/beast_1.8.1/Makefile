@@ -92,7 +92,8 @@ build:  $(SRC_DIRS)
 install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
 	( \
-	  cp -r $(SOURCE_DIR)/* $(ROOT)/$(PKGROOT) \
+ 	  cd $(SOURCE_DIR); \
+ 	  cp -r release/Linux/BEASTv$(VERSION)*/* $(ROOT)/$(PKGROOT) \
 	)
 	@echo "::: Package $(NAME) install complete :::"
 
