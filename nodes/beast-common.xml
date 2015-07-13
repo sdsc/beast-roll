@@ -12,8 +12,8 @@ Copyright (c) 2000 - 2014 The Regents of the University of California.
 All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
 </copyright>
 
-<package>sdsc-beast_1.8.0</package>
 <package>sdsc-beast_1.8.1</package>
+<package>sdsc-beast_1.8.2</package>
 <package>sdsc-beast-modules</package>
 <package>sdsc-beast-roll-test</package>
 

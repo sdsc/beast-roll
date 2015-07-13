@@ -86,32 +86,33 @@ LICENSE: $(SRC_DIRS)
 	$(CHECK_LICENSE_FILES)
 	echo -e LPGL > $@
 
-build: $(SRC_DIRS)
+build:  $(SRC_DIRS)
 	patch $(SOURCE_DIR)/release/Linux/scripts/beast patch-files/beast.patch
 	( \
-	  $(MODULE_LOAD_CC); \
-	  $(MODULE_LOAD_BEAGLE); \
-	  export CC=$(CC); \
-	  export CFLAGS="$(COMPILE_FLAGS)"; \
-	  export CXX=$(CXX); \
-	  export CXXFLAGS="$(COMPILE_FLAGS)"; \
-	  export LC_ALL="en_US" ; \
-	  export LIBPATH=${BEAGLE_HOME}/lib:${LD_LIBRARY_PATH}; \
-	  export INSTALLPREFIX=$(PKGROOT); \
-	  cd $(SOURCE_DIR)/native; \
-	  make CC=$(CC) CFLAGS="$(COMPILE_FLAGS)" -f Makefile.linux; \
-	  cd ..; \
-	  ant build; \
-	  and dist-all; \
-	  ant linux \
-	)
+          $(MODULE_LOAD_CC); \
+          $(MODULE_LOAD_BEAGLE); \
+          export CC=$(CC); \
+          export CFLAGS="$(COMPILE_FLAGS)"; \
+          export CXX=$(CXX); \
+          export CXXFLAGS="$(COMPILE_FLAGS)"; \
+          export LC_ALL="en_US" ; \
+          export LIBPATH=${BEAGLE_HOME}/lib:${LD_LIBRARY_PATH}; \
+          export INSTALLPREFIX=$(PKGROOT); \
+          cd $(SOURCE_DIR)/native; \
+          make CC=$(CC) CFLAGS="$(COMPILE_FLAGS)" -f Makefile.linux; \
+          cd ..; \
+          ant build; \
+          and dist-all; \
+          ant linux \
+        )
+
 	@echo "::: Package $(NAME) build complete :::"
 
 install::
 	mkdir -p -m 755 $(ROOT)/$(PKGROOT)
 	( \
-	  cd $(SOURCE_DIR); \
-	  cp -r release/Linux/BEASTv$(VERSION)/* $(ROOT)/$(PKGROOT) \
+ 	  cd $(SOURCE_DIR); \
+ 	  cp -r release/Linux/BEASTv$(VERSION)*/* $(ROOT)/$(PKGROOT) \
 	)
 	@echo "::: Package $(NAME) install complete :::"
 
