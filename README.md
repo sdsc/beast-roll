@@ -3,6 +3,7 @@
 ## Overview
 
 This roll bundles the Bayesian Evolutionary Analysis Sampling Trees package.
+Currently the current and previous versions are built.
 
 For more information about BEAST please visit the <a
 href="http://beast.bio.ed.ac.uk/Main_Page" target="_blank">official web page</a>.
