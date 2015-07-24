@@ -1,0 +1,10 @@
+--- beast-1.8.2/release/Linux/scripts/beast	2015-07-13 11:57:34.000000000 -0700
++++ patch-files/beast	2015-07-13 12:47:18.774443526 -0700
+@@ -22,5 +22,5 @@
+ 	cd "$saveddir"
+ fi
+ 
+-BEAST_LIB="$BEAST/lib"
+-java -Xms64m -Xmx2048m -Djava.library.path="$BEAST_LIB:/usr/local/lib:$LD_LIBRARY_PATH" -cp "$BEAST_LIB/beast.jar:$BEAST_LIB/beast-beagle.jar" dr.app.beast.BeastMain $*
++BEAGLE_LIB="$BEAGLE_HOME/lib"
++java -Xms64m -Xmx2048m -Djava.library.path="$BEAST_LIB:$BEAGLE_LIB:/usr/local/lib:$LD_LIBRARY_PATH" -cp "$BEAST_LIB/beast.jar:$BEAST_LIB/beast-beagle.jar" dr.app.beast.BeastMain $*

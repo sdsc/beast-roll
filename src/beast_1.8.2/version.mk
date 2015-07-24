@@ -4,8 +4,8 @@ endif
 COMPILERNAME := $(firstword $(subst /, ,$(ROLLCOMPILER)))
 
 NAME           = sdsc-beast_$(VERSION)
-VERSION        = 1.8.0
-RELEASE        = 5
+VERSION        = 1.8.2
+RELEASE        = 0
 PKGROOT        = /opt/beast/$(VERSION)
 
 SRC_SUBDIR     = beast

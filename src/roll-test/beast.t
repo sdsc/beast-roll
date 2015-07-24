@@ -23,11 +23,11 @@ if($appliance =~ /$installedOnAppliancesPattern/) {
 SKIP: {
   skip 'beast not installed', 4 if ! $isInstalled;
   `mkdir -p $TESTFILE.dir`;
+  $output = `module load beast/1.8.2; cd $TESTFILE.dir; beast /opt/beast/1.8.2/examples/Benchmarks/old_benchmark.xml 2>&1`;
+  ok($output =~ /Final likelihood/, 'beast 1.8.2 benchmark run');
+  `rm -f $TESTFILE.dir/*`;
   $output = `module load beast/1.8.1; cd $TESTFILE.dir; beast /opt/beast/1.8.1/examples/Benchmarks/old_benchmark.xml 2>&1`;
   ok($output =~ /Final likelihood/, 'beast 1.8.1 benchmark run');
-  `rm -f $TESTFILE.dir/*`;
-  $output = `module load beast/1.8.0; cd $TESTFILE.dir; beast /opt/beast/1.8.0/examples/Benchmarks/old_benchmark.xml 2>&1`;
-  ok($output =~ /Final likelihood/, 'beast 1.8.0 benchmark run');
   skip 'modules not installed', 3 if ! -f '/etc/profile.d/modules.sh';
   `/bin/ls /opt/modulefiles/applications/beast/[0-9]* 2>&1`;
   ok($? == 0, 'beast module installed');
