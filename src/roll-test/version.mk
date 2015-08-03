@@ -1,6 +1,6 @@
 NAME       = sdsc-beast-roll-test
 VERSION    = 1
-RELEASE    = 5
+RELEASE    = 6
 PKGROOT    = /root/rolltests
 
 RPM.EXTRAS = AutoReq:No
