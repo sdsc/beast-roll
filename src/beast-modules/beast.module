@@ -2,7 +2,7 @@
 module-whatis "beast"
 module-whatis "Version: VERSION"
 module-whatis "Description: beast"
-module-whatis "Compiler: intel"
+module-whatis "Compiler: ROLLCOMPILER"
 module load beagle/2.1
 set     beasthome       /opt/beast/VERSION
 setenv  BEAST           $beasthome
