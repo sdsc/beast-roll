@@ -72,6 +72,7 @@ else ifeq ("$(COMPILERNAME)", "pgi")
 endif
 
 MODULE_LOAD_BEAGLE = $(call MODULE_LOAD_PACKAGE, beagle, BEAGLE_HOME)
+DESCRIBE_BEAGLE = echo built with beagle $(call GET_MODULE_VERSION, beagle)
 
 $(NAME).spec: DESCRIPTION LICENSE
 
@@ -79,7 +80,8 @@ DESCRIPTION:
 	$(MODULE_LOAD_CC); \
 	( \
 	  $(DESCRIBE_PKG); \
-	  $(DESCRIBE_CC) \
+	  $(DESCRIBE_CC); \
+	  $(DESCRIBE_BEAGLE) \
 	) > $@
 
 LICENSE: $(SRC_DIRS)
