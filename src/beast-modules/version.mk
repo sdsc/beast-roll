@@ -7,7 +7,7 @@ PACKAGE     = beast
 CATEGORY    = applications
 
 NAME        = sdsc-$(PACKAGE)-modules
-RELEASE     = 8
+RELEASE     = 9
 PKGROOT     = /opt/modulefiles/$(CATEGORY)/$(PACKAGE)
 
 VERSION_SRC = $(REDHAT.ROOT)/src/$(PACKAGE)_1.8.2/version.mk
@@ -16,3 +16,4 @@ include $(VERSION_INC)
 EXTRA_MODULE_VERSIONS = 1.8.0 1.8.1
 
 RPM.EXTRAS  = AutoReq:No
+RPM.PREFIX  = $(PKGROOT)

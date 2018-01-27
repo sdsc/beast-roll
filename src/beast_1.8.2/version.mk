@@ -5,7 +5,7 @@ COMPILERNAME := $(firstword $(subst /, ,$(ROLLCOMPILER)))
 
 NAME           = sdsc-beast_$(VERSION)
 VERSION        = 1.8.2
-RELEASE        = 1
+RELEASE        = 2
 PKGROOT        = /opt/beast/$(VERSION)
 
 SRC_SUBDIR     = beast
@@ -19,3 +19,4 @@ SOURCE_DIR     = $(SOURCE_PKG:%.$(SOURCE_SUFFIX)=%)
 TAR_GZ_PKGS    = $(SOURCE_PKG)
 
 RPM.EXTRAS     = AutoReq:No
+RPM.PREFIX     = $(PKGROOT)
