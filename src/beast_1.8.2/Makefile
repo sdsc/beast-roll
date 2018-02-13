@@ -105,7 +105,7 @@ build:  $(SRC_DIRS)
           make CC=$(CC) CFLAGS="$(COMPILE_FLAGS)" -f Makefile.linux; \
           cd ..; \
           ant build; \
-          and dist-all; \
+          ant dist-all; \
           ant linux \
         )
 
