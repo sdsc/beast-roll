@@ -5,7 +5,7 @@ COMPILERNAME := $(firstword $(subst /, ,$(ROLLCOMPILER)))
 
 NAME           = sdsc-beast_$(VERSION)
 VERSION        = 1.8.0
-RELEASE        = 10
+RELEASE        = 11
 PKGROOT        = /opt/beast/$(VERSION)
 
 SRC_SUBDIR     = beast
