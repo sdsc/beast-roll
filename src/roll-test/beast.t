@@ -27,10 +27,12 @@ SKIP: {
   foreach my $VER(@VERS) {
      $output = `module load beast/$VER; cd $TESTFILE.dir; beast /opt/beast/$VER/examples/Benchmarks/old_benchmark.xml 2>&1`;
      ok($output =~ /Final likelihood/, "beast $VER benchmark run");
-     }
-     $output = `module load beast/$VER; cd $TESTFILE.dir; beast /opt/beast/$VER/examples/Benchmarks/benchmark1.xml 2>&1`;
-     ok($output =~ /Final likelihood/, "beast $VER benchmark run");
      `rm -f $TESTFILE.dir/*`;
+  }
+  $VER='1.10.4';
+  $output = `module load beast/$VER; cd $TESTFILE.dir; beast /opt/beast/$VER/examples/Benchmarks/benchmark1.xml 2>&1`;
+  ok($output =~ /BeagleTreeLikelihood\(treeLikelihood\)/, "beast $VER benchmark run");
+  `rm -f $TESTFILE.dir/*`;
   skip 'modules not installed', 3 if ! -f '/etc/profile.d/modules.sh';
   `/bin/ls /opt/modulefiles/applications/beast/[0-9]* 2>&1`;
   ok($? == 0, 'beast module installed');
