@@ -13,7 +13,7 @@ my $isInstalled = -d '/opt/beast';
 my $output;
 
 my $TESTFILE = 'tmpbeast';
-my @VERS = ('1.8.0','1.8.1','1.8.2','1.10.4');
+my @VERS = ('1.8.0','1.8.1','1.8.2');
 
 # beast-install.xml
 if($appliance =~ /$installedOnAppliancesPattern/) {
@@ -27,8 +27,10 @@ SKIP: {
   foreach my $VER(@VERS) {
      $output = `module load beast/$VER; cd $TESTFILE.dir; beast /opt/beast/$VER/examples/Benchmarks/old_benchmark.xml 2>&1`;
      ok($output =~ /Final likelihood/, "beast $VER benchmark run");
-     `rm -f $TESTFILE.dir/*`;
      }
+     $output = `module load beast/$VER; cd $TESTFILE.dir; beast /opt/beast/$VER/examples/Benchmarks/benchmark1.xml 2>&1`;
+     ok($output =~ /Final likelihood/, "beast $VER benchmark run");
+     `rm -f $TESTFILE.dir/*`;
   skip 'modules not installed', 3 if ! -f '/etc/profile.d/modules.sh';
   `/bin/ls /opt/modulefiles/applications/beast/[0-9]* 2>&1`;
   ok($? == 0, 'beast module installed');
