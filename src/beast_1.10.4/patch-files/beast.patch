@@ -1,0 +1,9 @@
+--- beast-mcmc-1.10.4/release/Linux/scripts/beast	2018-11-14 03:40:54.000000000 -0800
++++ patch-files/beast	2019-04-02 11:30:08.325858691 -0700
+@@ -23,4 +23,5 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-java -Xms64m -Xmx2048m -Djava.library.path="$BEAST_LIB:/usr/local/lib:$LD_LIBRARY_PATH" -cp "$BEAST_LIB/beast.jar:$BEAST_LIB/beast-beagle.jar" dr.app.beast.BeastMain $*
++BEAGLE_LIB="$BEAGLE_HOME/lib"
++java -Xms64m -Xmx2048m -Djava.library.path="$BEAST_LIB:$BEAGLE_LIB:$LD_LIBRARY_PATH" -cp "$BEAST_LIB/beast.jar:$BEAST_LIB/beast-beagle.jar" dr.app.beast.BeastMain $*
